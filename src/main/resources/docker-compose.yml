@@ -1,0 +1,20 @@
+version: "3"
+services:
+  javatechiemongodb:
+    image: mongo:latest
+    container_name: "javatechiemongodb"
+    ports:
+      - 27017:27017
+  redis-server:
+    image: redis:latest
+    container_name: "redis"
+    ports:
+      - 6379:6379
+  twitter:
+    image: twitter:1.0
+    container_name: twitter
+    ports:
+      - 8080:8080
+    links:
+      - javatechiemongodb
+      - redis
